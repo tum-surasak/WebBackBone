@@ -1,0 +1,22 @@
+﻿<div ng-controller="panelController as ctrl">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-7" style="height: 48px; line-height: 48px;" text-eclipse>Name <i class="fa fa-arrow-down"></i></div>
+            <div class="col-3" style="height: 48px; line-height: 48px;" text-eclipse>Owner <i class="fa fa-arrow-down"></i></div>
+            <div class="col-2" style="height: 48px; line-height: 48px;" text-eclipse>Last Modified <i class="fa fa-arrow-down"></i></div>
+        </div>
+    </div>
+    <div class="container-fluid" style="height: 100px; overflow-x: hidden; overflow-y: scroll;" fit-bottom-edge>
+        <div class="row" ng-repeat="x in ctrl.items" ng-click="ctrl.activeId=x"
+             style="cursor: pointer; height: 48px; line-height: 48px; font-weight: 600;"
+             ng-style="{'background-color': ctrl.activeId===x ? 'rgba(245,245,245, 0.85)' : ''}">
+            <div class="col-7" style="padding-left: 25px;" text-eclipse>
+                <i class="fa fa-folder-o"></i>
+                {{x.label}}
+            </div>
+            <div class="col-3" text-eclipse>{{x.owner.name}}</div>
+            <div class="col-2" text-eclipse>{{x.modified_date | date: 'dd MMM. yyyy'}}</div>
+            <div class="col-12" style="border-bottom: solid 1px rgba(235, 235, 235, .85);"></div>
+        </div>
+    </div>
+</div>
